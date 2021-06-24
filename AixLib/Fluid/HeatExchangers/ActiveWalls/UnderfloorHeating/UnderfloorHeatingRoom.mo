@@ -1,4 +1,4 @@
-﻿within AixLib.Fluid.HeatExchangers.ActiveWalls.UnderfloorHeating;
+within AixLib.Fluid.HeatExchangers.ActiveWalls.UnderfloorHeating;
 model UnderfloorHeatingRoom "Model for heating of one room with underfloor heating"
   extends UnderfloorHeating.BaseClasses.PartialModularPort_ab(final nPorts=
         CircuitNo, final m_flow_nominal=m_flow_PanelHeating);

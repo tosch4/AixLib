@@ -1,4 +1,4 @@
-﻿within AixLib.Fluid.HeatExchangers.ActiveWalls.UnderfloorHeating;
+within AixLib.Fluid.HeatExchangers.ActiveWalls.UnderfloorHeating;
 model UnderfloorHeatingSystem "Model for an underfloor heating system"
 extends AixLib.Fluid.Interfaces.PartialTwoPortInterface(allowFlowReversal=
         false, final m_flow_nominal = m_flow_total);
