@@ -10,12 +10,12 @@ model InnerWall
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a port_conv "interior port"
     annotation (Placement(transformation(extent={{-10,-108},{10,-88}}),
         iconTransformation(extent={{-14,-108},{6,-88}})));
-  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a port_transfer annotation
-    (Placement(transformation(extent={{-110,-10},{-90,10}}), iconTransformation(
+  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a port_transfer annotation (
+     Placement(transformation(extent={{-110,-10},{-90,10}}), iconTransformation(
           extent={{-114,-10},{-94,10}})));
 protected
-  Modelica.Thermal.HeatTransfer.Components.Convection convIntWall(dT(start=0))
-    if                                                               AInt > 0
+  Modelica.Thermal.HeatTransfer.Components.Convection convIntWall(dT(start=0)) if
+                                                                     AInt > 0
     "Convective heat transfer of interior walls"
     annotation (Placement(transformation(extent={{-28,36},{-48,16}})));
   Modelica.Blocks.Sources.Constant hConIntWall(k=AInt*hConInt) if AInt > 0

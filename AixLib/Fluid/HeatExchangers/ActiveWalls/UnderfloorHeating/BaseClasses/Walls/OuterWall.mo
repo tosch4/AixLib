@@ -18,12 +18,12 @@ model OuterWall
     annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
         iconTransformation(extent={{-108,-12},{-88,8}})));
 protected
-  Modelica.Thermal.HeatTransfer.Components.Convection convExtWall(dT(start=0))
-    if                                                               ATotExt > 0
+  Modelica.Thermal.HeatTransfer.Components.Convection convExtWall(dT(start=0)) if
+                                                                     ATotExt > 0
     "Convective heat transfer of exterior walls"
     annotation (Placement(transformation(extent={{30,10},{50,-10}})));
-  Modelica.Blocks.Sources.Constant hConExtWall_const(final k=ATotExt*hConExt)
-    if                        ATotExt > 0
+  Modelica.Blocks.Sources.Constant hConExtWall_const(final k=ATotExt*hConExt) if
+                              ATotExt > 0
     "Coefficient of convective heat transfer for exterior walls"
     annotation (Placement(transformation(
     extent={{5,-5},{-5,5}},
