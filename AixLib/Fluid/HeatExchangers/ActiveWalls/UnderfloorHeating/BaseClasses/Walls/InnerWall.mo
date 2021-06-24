@@ -6,12 +6,12 @@ model InnerWall
     final RInt=RInt,
     final CInt=CInt,
     final T_start=T_start) if AInt > 0 "RC-element for interior walls"
-    annotation (Placement(transformation(extent={{6,18},{26,40}})));
+    annotation (Placement(transformation(extent={{6,16},{26,38}})));
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a port_conv "interior port"
-    annotation (Placement(transformation(extent={{-108,16},{-88,36}}),
+    annotation (Placement(transformation(extent={{-10,-108},{10,-88}}),
         iconTransformation(extent={{-14,-108},{6,-88}})));
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a port_transfer annotation
-    (Placement(transformation(extent={{-18,-110},{2,-90}}), iconTransformation(
+    (Placement(transformation(extent={{-110,-10},{-90,10}}), iconTransformation(
           extent={{-114,-10},{-94,10}})));
 protected
   Modelica.Thermal.HeatTransfer.Components.Convection convIntWall(dT(start=0))
@@ -27,15 +27,15 @@ protected
 equation
   connect(convIntWall.solid,intWallRC. port_a)
     annotation (Line(
-    points={{-28,26},{-12,26},{-12,28},{6,28}},
+    points={{-28,26},{6,26}},
     color={191,0,0},
     smooth=Smooth.None));
   connect(hConIntWall.y,convIntWall. Gc)
     annotation (Line(points={{-38,10.5},{-38,16}},       color={0,0,127}));
-  connect(port_conv, convIntWall.fluid)
-    annotation (Line(points={{-98,26},{-48,26}}, color={191,0,0}));
-  connect(port_transfer, intWallRC.port_a)
-    annotation (Line(points={{-8,-100},{-8,28},{6,28}}, color={191,0,0}));
+  connect(port_conv, convIntWall.fluid) annotation (Line(points={{0,-98},{0,-26},
+          {-68,-26},{-68,26},{-48,26}}, color={191,0,0}));
+  connect(port_transfer, intWallRC.port_a) annotation (Line(points={{-100,0},{
+          -76,0},{-76,54},{-10,54},{-10,26},{6,26}}, color={191,0,0}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
                                            Rectangle(extent={{-90,58},{-38,24}},
                           fillColor = {255, 213, 170},
