@@ -159,8 +159,12 @@ package BaseClasses "Base classes for Swimming Pool Models"
           Rectangle(extent={{-100,100},{100,-100}}, lineColor={0,0,0})}),
                                                                    Diagram(
           coordinateSystem(preserveAspectRatio=false)),
-      Documentation(info="<html>
-<p>This model is a base model to calculate the heat transfer through pool walls. The pool walls are sorted by: vertical walls with earth contact, pool floor with earth contact and the sum of walls and pool floor without earth contact.</p>
+      Documentation(info="<html><p>
+  This model is a base model to calculate the heat transfer through
+  pool walls. The pool walls are sorted by: vertical walls with earth
+  contact, pool floor with earth contact and the sum of walls and pool
+  floor without earth contact.
+</p>
 </html>"));
   end HeatTransferConduction;
 
@@ -255,8 +259,15 @@ package BaseClasses "Base classes for Swimming Pool Models"
             lineColor={0,0,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid), Line(points={{0,60},{60,0},{0,-60}},
-              color={0,0,0})}), Documentation(info="<html>
-<p>This is model&nbsp; describes a&nbsp;pump&nbsp;with prescribed mass flow (<a href=\"AixLib.Fluid.Movers.FlowControlled_m_flow\">AixLib.Fluid.Movers.FlowControlled_m_flow</a>) and&nbsp;a&nbsp;corresponding&nbsp;pressure&nbsp;drop&nbsp;(<a href=\"FixedResistances.PressureDrop\">FixedResistances.PressureDrop</a>) to&nbsp;avoid&nbsp;pressure&nbsp;build&nbsp;up&nbsp;in&nbsp;the&nbsp;system, while calculating the consumed power. </p>
+              color={0,0,0})}), Documentation(info="<html><p>
+  This is model&#160; describes a&#160;pump&#160;with prescribed mass
+  flow (<a href=
+  \"AixLib.Fluid.Movers.FlowControlled_m_flow\">AixLib.Fluid.Movers.FlowControlled_m_flow</a>)
+  and&#160;a&#160;corresponding&#160;pressure&#160;drop&#160;(<a href=
+  \"FixedResistances.PressureDrop\">FixedResistances.PressureDrop</a>)
+  to&#160;avoid&#160;pressure&#160;build&#160;up&#160;in&#160;the&#160;system,
+  while calculating the consumed power.
+</p>
 </html>"));
   end PumpAndPressureDrop;
 
@@ -283,8 +294,11 @@ package BaseClasses "Base classes for Swimming Pool Models"
         Rectangle(
           extent={{-100,100},{98,-100}},
           lineColor={0,0,0},
-          lineThickness=0.5)}), Documentation(info="<html>
-<p>This model calculates the latent heat of the water vapor based on the temperature (in Kelvin) with the function <a href=\"AixLib.Media.Air.enthalpyOfCondensingGas\">AixLib.Media.Air.enthalpyOfCondensingGas</a>. </p>
+          lineThickness=0.5)}), Documentation(info="<html><p>
+  This model calculates the latent heat of the water vapor based on the
+  temperature (in Kelvin) with the function <a href=
+  \"AixLib.Media.Air.enthalpyOfCondensingGas\">AixLib.Media.Air.enthalpyOfCondensingGas</a>.
+</p>
 </html>"));
   end toH_fg;
 
@@ -317,8 +331,9 @@ package BaseClasses "Base classes for Swimming Pool Models"
             lineColor={128,128,128},
             textString="u1 / u2")}),                                Diagram(
           coordinateSystem(preserveAspectRatio=false)),
-      Documentation(info="<html>
-<p>Block to divide the values of two vectors. </p>
+      Documentation(info="<html><p>
+  Block to divide the values of two vectors.
+</p>
 </html>"));
   end DivisionMI2MO;
 
@@ -394,11 +409,18 @@ package BaseClasses "Base classes for Swimming Pool Models"
             smooth=Smooth.Bezier,
             thickness=1)}),                                        Diagram(
           coordinateSystem(preserveAspectRatio=false)),
-      Documentation(info="<html>
-<p>Model to calculate the energy demand of a wavemachine. Based on values of:</p>
+      Documentation(info="<html><p>
+  Model to calculate the energy demand of a wavemachine. Based on
+  values of:
+</p>
 <ul>
-<li>German Association for the Recreational and Medicinal Bath Industry (Deutsche Gesellschaft f&uuml;r das Badewesen DGfdB), April 2015 : Richtlinien f&uuml;r den B&auml;derbau</li>
-<li>Chroistoph Saunus, 2005: Schwimmb&auml;der Planung - Ausf&uuml;hrung - Betrieb</li>
+  <li>German Association for the Recreational and Medicinal Bath
+  Industry (Deutsche Gesellschaft für das Badewesen DGfdB), April 2015
+  : Richtlinien für den Bäderbau
+  </li>
+  <li>Chroistoph Saunus, 2005: Schwimmbäder Planung - Ausführung -
+  Betrieb
+  </li>
 </ul>
 </html>"));
   end waveMachine;
@@ -474,8 +496,12 @@ package BaseClasses "Base classes for Swimming Pool Models"
       annotation (Line(points={{-54,-4},{-40,-4},{-40,16}}, color={0,0,127}));
     annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
           coordinateSystem(preserveAspectRatio=false)),
-      Documentation(info="<html>
-<p>Model for an simple airhandling unit controller. See for an Example here: <a href=\"AixLib.ThermalZones.ReducedOrder.Examples.MultizoneEquippedSwimmingPool\">AixLib.ThermalZones.ReducedOrder.Examples.MultizoneEquippedSwimmingPool</a> </p>
+      Documentation(info="<html><p>
+  Model for an simple airhandling unit controller. See for an Example
+  here: <a href=
+  \"AixLib.ThermalZones.ReducedOrder.Examples.MultizoneEquippedSwimmingPool\">
+  AixLib.ThermalZones.ReducedOrder.Examples.MultizoneEquippedSwimmingPool</a>
+</p>
 </html>"));
   end AHUcontrol;
 
@@ -534,8 +560,12 @@ package BaseClasses "Base classes for Swimming Pool Models"
                                                       color={0,0,127}));
     annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
           coordinateSystem(preserveAspectRatio=false)),
-      Documentation(info="<html>
-<p>Model for a simple heat exchanger for the <a href=\"AixLib.Fluid.Pools.IndoorSwimmingPool\">AixLib.Fluid.Pools.IndoorSwimmingPool</a> model. Includes a hysteresis to shut off the heater if the temperature of the cycle exceeds a certain limit. </p>
+      Documentation(info="<html><p>
+  Model for a simple heat exchanger for the <a href=
+  \"AixLib.Fluid.Pools.IndoorSwimmingPool\">AixLib.Fluid.Pools.IndoorSwimmingPool</a>
+  model. Includes a hysteresis to shut off the heater if the
+  temperature of the cycle exceeds a certain limit.
+</p>
 </html>"));
   end idealHeatExchanger;
 

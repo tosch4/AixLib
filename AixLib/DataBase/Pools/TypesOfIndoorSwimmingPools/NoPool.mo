@@ -34,7 +34,9 @@ record NoPool
   RFloor = {0.00001},
   RFloorRem =  0.00001,
   CFloor = {0.00001});
-  annotation (Documentation(info="<html>
-<p>This record is a place holder for zones without swimming pools to avoid error messages.</p>
+  annotation (Documentation(info="<html><p>
+  This record is a place holder for zones without swimming pools to
+  avoid error messages.
+</p>
 </html>"));
 end NoPool;
