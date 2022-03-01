@@ -1,9 +1,10 @@
-within AixLib.ThermalZones.ReducedOrder.ThermalZone;
+﻿within AixLib.ThermalZones.ReducedOrder.ThermalZone;
 model ThermalZone "Thermal zone containing moisture balance"
   extends AixLib.ThermalZones.ReducedOrder.ThermalZone.BaseClasses.PartialThermalZone;
 
   replaceable model corG = SolarGain.CorrectionGDoublePane
-    constrainedby AixLib.ThermalZones.ReducedOrder.SolarGain.BaseClasses.PartialCorrectionG
+    constrainedby
+    AixLib.ThermalZones.ReducedOrder.SolarGain.BaseClasses.PartialCorrectionG
     "Model for correction of solar transmission"
     annotation(choicesAllMatching=true);
   parameter Integer internalGainsMode = 1
@@ -566,8 +567,8 @@ equation
       index=-1,
       extent={{-6,3},{-6,3}},
       horizontalAlignment=TextAlignment.Right));
-  connect(heaterCooler.heatCoolRoom, intGainsConv) annotation (Line(points={{82.9,
-          32},{96,32},{96,20},{104,20}}, color={191,0,0}));
+  connect(heaterCooler.heatCoolRoom, intGainsConv) annotation (Line(points={{82.9,32},
+          {88,32},{88,20},{104,20}},     color={191,0,0}));
   connect(corGMod.solarRadWinTrans, simpleExternalShading.solRadWin)
     annotation (Line(points={{-3.4,49},{2.3,49},{2.3,48.92},{3.88,48.92}},
         color={0,0,127}));
