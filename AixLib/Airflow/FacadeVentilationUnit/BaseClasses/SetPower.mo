@@ -40,7 +40,7 @@ model SetPower
     dp(start=dp_nominal),
     dp_nominal=dp_nominal,
     p_start=p_start,
-    riseTime=120,
+    riseTime=1,
     nominalValuesDefineDefaultPressureCurve=true)
     "Mass-flow-controlled mover setting mass flow rate from table"
     annotation (Placement(transformation(extent=
