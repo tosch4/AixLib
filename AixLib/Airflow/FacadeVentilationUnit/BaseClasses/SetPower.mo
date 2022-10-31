@@ -14,14 +14,15 @@ model SetPower
     "Initial pressure difference";
   parameter Medium.Temperature T_start=Medium.T_default
     "Start value of temperature";
-
-  Modelica.Blocks.Tables.CombiTable1D volumeFlow(table=[0,1; 0.1,25; 0.2,40;
-        0.3,60; 0.4,90; 0.5,100; 0.6,140; 0.7,175; 0.8,200; 0.9,225; 1,260])
+  parameter AixLib.Airflow.FacadeVentilationUnit.DataBase.FanBaseRecord
+    volumeFlow = DemPowDecAHU.DatabaseFiles.FANS.BasicFan()
     "Correlates the relative input signal and a volume flow rate"
-    annotation (Placement(transformation(
+    annotation(choicesAllMatching = true, Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
-        origin={0,-56})));
+        origin={-42,-56})));
+
+
   Modelica.Blocks.Interfaces.RealInput powerShare(
     min=0,
     max=1,
@@ -51,20 +52,39 @@ model SetPower
         extent={{-6,-6},{6,6}},
         rotation=90,
         origin={0,-28})));
+  Modelica.Blocks.Interfaces.RealOutput VolumeFlow annotation (Placement(
+        transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=90,
+        origin={0,106})));
+  Modelica.Blocks.Tables.CombiTable1D volumeFlow1(table=volumeFlow.volumeFlow)
+    "Correlates the relative input signal and a volume flow rate"
+    annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=90,
+        origin={0,-58})));
 equation
 
   connect(port_a, fan.port_a)
     annotation (Line(points={{-100,0},{-56,0},{-10,0}}, color={0,127,255}));
   connect(fan.port_b, port_b)
     annotation (Line(points={{10,0},{56,0},{100,0}}, color={0,127,255}));
-  connect(powerShare, volumeFlow.u[1]) annotation (Line(points={{0,-100},{0,-80},
-          {-6.66134e-016,-80},{-6.66134e-016,-68}}, color={0,0,127}));
-  connect(transforMassFlow.u, volumeFlow.y[1]) annotation (Line(points={{-4.44089e-016,
-          -35.2},{-4.44089e-016,-46},{8.88178e-016,-46},{8.88178e-016,-45}},
-        color={0,0,127}));
   connect(transforMassFlow.y, fan.m_flow_in) annotation (Line(points={{
           4.44089e-016,-21.4},{4.44089e-016,-24},{0,-24},{0,-12}}, color={0,0,
           127}));
+
+
+
+
+
+
+
+  connect(powerShare, volumeFlow1.u[1])
+    annotation (Line(points={{0,-100},{0,-70}}, color={0,0,127}));
+  connect(volumeFlow1.y[1], transforMassFlow.u)
+    annotation (Line(points={{0,-47},{0,-35.2}}, color={0,0,127}));
+  connect(volumeFlow1.y[1], VolumeFlow) annotation (Line(points={{6.66134e-16,-47},
+          {6.66134e-16,-40},{24,-40},{24,82},{0,82},{0,106}}, color={0,0,127}));
   annotation (
     choicesAllMatching=true,
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
