@@ -399,6 +399,14 @@ public
         origin={-48,-112})));
   Modelica.Blocks.Math.Gain gain(k=1/zoneParam.VAir)
     annotation (Placement(transformation(extent={{-24,-136},{-4,-116}})));
+  Modelica.Blocks.Interfaces.RealOutput NumberOfPerson
+    annotation (Placement(transformation(extent={{100,-128},{120,-108}})));
+  Modelica.Blocks.Math.Gain gain1(k=zoneParam.specificPeople*zoneParam.AZone)
+    annotation (Placement(transformation(extent={{72,-144},{92,-124}})));
+  Modelica.Blocks.Math.MultiSum multiSum(nu=1)
+    annotation (Placement(transformation(extent={{30,-26},{38,-18}})));
+  Modelica.Blocks.Interfaces.RealInput CO2_Overcharge
+    annotation (Placement(transformation(extent={{-128,-134},{-88,-94}})));
 equation
   connect(intGains[2], machinesSenHea.uRel) annotation (Line(points={{80,-100},{
           80,-94},{78,-94},{78,-88},{48,-88},{48,-46.5},{56,-46.5}}, color={0,0,
@@ -671,8 +679,6 @@ equation
                                color={0,0,127}));
   connect(cO2Balance.XCO2, XCO2.y) annotation (Line(points={{20,-68.4},{20,-67},
           {10.9,-67}}, color={0,0,127}));
-  connect(ROM.C_flow[1], cO2Balance.mCO2_flow) annotation (Line(points={{37,84},
-          {34,84},{34,-6},{50,-6},{50,-62.8},{34.7,-62.8}}, color={0,0,127}));
 
   connect(airExcMoi.port_a, preTemVen.port)
     annotation (Line(points={{-22,-4},{-30,-4}}, color={191,0,0}));
@@ -691,6 +697,16 @@ equation
           {-26,-126}}, color={0,0,127}));
   connect(gain.y, cO2Balance.airExc) annotation (Line(points={{-3,-126},{30,
           -126},{30,-84},{14,-84},{14,-64.9},{20,-64.9}}, color={0,0,127}));
+  connect(intGains[1], gain1.u) annotation (Line(points={{80,-113.333},{60,
+          -113.333},{60,-118},{42,-118},{42,-134},{70,-134}}, color={0,0,127}));
+  connect(gain1.y, NumberOfPerson) annotation (Line(points={{93,-134},{98,-134},
+          {98,-118},{110,-118}}, color={0,0,127}));
+  connect(ROM.C_flow[1], multiSum.y) annotation (Line(points={{37,84},{36.6667,
+          84},{36.6667,-1.85185},{52,-1.85185},{52,-22},{38.68,-22}}, color={0,
+          0,127}));
+  connect(cO2Balance.mCO2_flow, multiSum.u[1]) annotation (Line(points={{34.7,
+          -62.8},{40,-62.8},{40,-32},{18,-32},{18,-22},{30,-22}}, color={0,0,
+          127}));
   annotation (Documentation(revisions="<html><ul>
   <li>November 20, 2020, by Katharina Breuer:<br/>
     Combine thermal zone models
